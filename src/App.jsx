@@ -1,35 +1,62 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+import Preview from './components/Preview';
+
+import GeneralForm from './components/GeneralForm';
+import { useState } from 'react';
+import EducationForm from './components/EducationForm';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [generalData, setGeneralData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+  });
+
+  const [educationData, setEducationData] = useState([
+    {
+      school: '',
+      degree: '',
+      date: '',
+    },
+  ]);
+
+  function newEducationDataRow(e) {
+    e.preventDefault();
+    const newEducationData = [...educationData];
+    newEducationData.push({
+      school: '',
+      degree: '',
+      date: '',
+    });
+    setEducationData(newEducationData);
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <nav>
+        <span>CV Formatter</span>
+      </nav>
+      <form action=''>
+        <legend>General Information</legend>
+        <GeneralForm
+          generalData={generalData}
+          setGeneralData={setGeneralData}
+        />
+      </form>
+      <form>
+        <legend>Education</legend>
+        <EducationForm
+          educationData={educationData}
+          setEducationData={setEducationData}
+        />
+        <button onClick={(e) => newEducationDataRow(e)}>New Row</button>
+      </form>
+      <form action=''>
+        <legend>Experience</legend>
+      </form>
+      <Preview />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

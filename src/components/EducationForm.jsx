@@ -1,0 +1,57 @@
+export default function EducationForm({ educationData, setEducationData }) {
+  function updateEducationData(key, value, index) {
+    const newEducationData = [...educationData];
+    newEducationData[index][key] = value;
+    setEducationData(newEducationData);
+  }
+
+  function deleteEducationRow(e, index) {
+    e.preventDefault();
+    const newEducationData = [...educationData];
+    newEducationData.splice(index, 1);
+    setEducationData(newEducationData);
+  }
+  return (
+    <>
+      {educationData.map((data, index) => {
+        return (
+          <fieldset key={index}>
+            <label htmlFor='school'>
+              School:
+              <input
+                type='text'
+                value={data.school}
+                onChange={(e) =>
+                  updateEducationData('school', e.target.value, index)
+                }
+              />
+            </label>
+            <label htmlFor='degree'>
+              Degree:
+              <input
+                type='text'
+                value={data.degree}
+                onChange={(e) =>
+                  updateEducationData('degree', e.target.value, index)
+                }
+              />
+            </label>
+            <label htmlFor='date'>
+              Date:
+              <input
+                type='text'
+                value={data.date}
+                onChange={(e) =>
+                  updateEducationData('date', e.target.value, index)
+                }
+              />
+            </label>
+            <button onClick={(e) => deleteEducationRow(e, index)}>
+              Delete
+            </button>
+          </fieldset>
+        );
+      })}
+    </>
+  );
+}
