@@ -19,7 +19,7 @@ export default function GeneralForm({ generalData, setGeneralData }) {
 
   return (
     <fieldset>
-      <label htmlFor='name'>
+      <label>
         Name:
         <input
           type='text'
@@ -27,7 +27,7 @@ export default function GeneralForm({ generalData, setGeneralData }) {
           onChange={(e) => updateName(e.target.value)}
         />
       </label>
-      <label htmlFor='email'>
+      <label>
         Email:
         <input
           type='text'
@@ -35,7 +35,7 @@ export default function GeneralForm({ generalData, setGeneralData }) {
           onChange={(e) => updateEmail(e.target.value)}
         />
       </label>
-      <label htmlFor='phone'>
+      <label>
         Phone:
         <input
           type='text'

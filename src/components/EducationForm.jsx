@@ -12,11 +12,11 @@ export default function EducationForm({ educationData, setEducationData }) {
     setEducationData(newEducationData);
   }
   return (
-    <>
+    <fieldset>
       {educationData.map((data, index) => {
         return (
-          <fieldset key={index}>
-            <label htmlFor='school'>
+          <div key={index}>
+            <label>
               School:
               <input
                 type='text'
@@ -26,7 +26,7 @@ export default function EducationForm({ educationData, setEducationData }) {
                 }
               />
             </label>
-            <label htmlFor='degree'>
+            <label>
               Degree:
               <input
                 type='text'
@@ -36,7 +36,7 @@ export default function EducationForm({ educationData, setEducationData }) {
                 }
               />
             </label>
-            <label htmlFor='date'>
+            <label>
               Date:
               <input
                 type='text'
@@ -49,9 +49,9 @@ export default function EducationForm({ educationData, setEducationData }) {
             <button onClick={(e) => deleteEducationRow(e, index)}>
               Delete
             </button>
-          </fieldset>
+          </div>
         );
       })}
-    </>
+    </fieldset>
   );
 }

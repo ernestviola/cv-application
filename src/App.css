@@ -1,0 +1,17 @@
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+form {
+  width: 45%;
+}
+input {
+  width: 100%;
+}
+
+.preview {
+  display: flex;
+  flex-direction: column;
+}
