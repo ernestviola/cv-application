@@ -24,22 +24,25 @@ export default function GeneralForm({ generalData, setGeneralData }) {
         <input
           type='text'
           value={generalData.name}
+          placeholder='Jane Doe'
           onChange={(e) => updateName(e.target.value)}
         />
       </label>
       <label>
         Email:
         <input
-          type='text'
+          type='email'
           value={generalData.email}
+          placeholder='example@email.com'
           onChange={(e) => updateEmail(e.target.value)}
         />
       </label>
       <label>
         Phone:
         <input
-          type='text'
+          type='tel'
           value={generalData.phone}
+          placeholder='123456789'
           onChange={(e) => updatePhone(e.target.value)}
         />
       </label>

@@ -6,29 +6,31 @@ import EducationForm from './components/EducationForm';
 import GeneralForm from './components/GeneralForm';
 import ExperienceForm from './components/ExperienceForm';
 
+import IconButton from '@mui/material/IconButton';
+import { Add, BorderColor, Download } from '@mui/icons-material';
+
 function App() {
   const [generalData, setGeneralData] = useState({
-    name: 'Ernest Viola',
-    email: 'fakeemail@gmail.com',
-    phone: '123456789',
+    name: '',
+    email: '',
+    phone: '',
   });
 
   const [educationData, setEducationData] = useState([
     {
-      school: 'San Diego State University',
-      degree: 'Computer Science',
-      date: '1/1/1111',
+      school: '',
+      degree: '',
+      date: '',
     },
   ]);
 
   const [experienceData, setExperienceData] = useState([
     {
-      name: 'Allvue Systems',
-      title: 'Operations Engineer',
-      responsibilities:
-        'Provided solutions to cover operations within the company',
-      startDate: '1/1/1111',
-      endDate: '2/2/2222',
+      name: '',
+      title: '',
+      responsibilities: '',
+      startDate: '',
+      endDate: '',
     },
   ]);
 
@@ -60,26 +62,46 @@ function App() {
     <>
       <nav>
         <span>CV Formatter</span>
+        <button className='download-button'>
+          Download <Download />
+        </button>
       </nav>
       <main>
         <form action=''>
-          <legend>General Information</legend>
-          <GeneralForm
-            generalData={generalData}
-            setGeneralData={setGeneralData}
-          />
-          <legend>Education</legend>
-          <EducationForm
-            educationData={educationData}
-            setEducationData={setEducationData}
-          />
-          <button onClick={(e) => newEducationDataRow(e)}>New Row</button>
-          <legend>Experience</legend>
-          <ExperienceForm
-            experienceData={experienceData}
-            setExperienceData={setExperienceData}
-          />
-          <button onClick={(e) => newExperienceDataRow(e)}>New Row</button>
+          <div>
+            <legend>General Information</legend>
+            <GeneralForm
+              generalData={generalData}
+              setGeneralData={setGeneralData}
+            />
+          </div>
+          <div>
+            <legend>Education</legend>
+            <EducationForm
+              educationData={educationData}
+              setEducationData={setEducationData}
+            />
+            <button
+              onClick={(e) => newEducationDataRow(e)}
+              color='success'
+              className='add-button'
+            >
+              Add Education <Add />
+            </button>
+          </div>
+          <div>
+            <legend>Experience</legend>
+            <ExperienceForm
+              experienceData={experienceData}
+              setExperienceData={setExperienceData}
+            />
+            <button
+              onClick={(e) => newExperienceDataRow(e)}
+              className='add-button'
+            >
+              Add Experience <Add />
+            </button>
+          </div>
         </form>
         <Preview
           generalData={generalData}

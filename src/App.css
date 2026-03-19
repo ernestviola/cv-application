@@ -1,17 +1,123 @@
-main {
+body {
+  background-color: #174e85;
+}
+
+nav {
+  background-color: #1574d4;
+  padding: 10px 20px;
+  font-size: 28px;
+  color: white;
+  box-shadow: 2px 0px 10px 5px #0251a1;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+
+main {
+  margin: 20px 0px;
+  display: flex;
+  gap: 40px;
 }
 
 form {
-  width: 45%;
+  min-width: 400px;
+  margin: 0px 10px;
+  color: white;
+  border: 1px solid gray;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex-grow: 0.5;
 }
-input {
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+fieldset {
+  border: none;
+  border-bottom: 1px solid gray;
+}
+
+fieldset > div {
+  display: flex;
+  flex-direction: column;
+}
+
+legend {
+  font-size: 22px;
+}
+
+label,
+fieldset > div {
   width: 100%;
 }
 
-.preview {
+textarea,
+input {
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 1px solid gray;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.add-button {
+  align-self: center;
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: green;
+  cursor: pointer;
+  transition: 0.2s;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background-color: rgb(214, 255, 214);
+}
+
+.add-button:hover {
+  background-color: rgba(255, 255, 255, 0.592);
+  border: 1px solid green;
+}
+
+.education-row,
+.experience-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.delete-button {
+  align-self: center;
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: red;
+  cursor: pointer;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  background-color: rgb(255, 171, 157);
+}
+
+.delete-button:hover {
+  background-color: rgba(255, 172, 157, 0.265);
+  border: 1px solid red;
 }
