@@ -1,15 +1,16 @@
 import './App.css';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Preview from './components/Preview';
 import EducationForm from './components/EducationForm';
 import GeneralForm from './components/GeneralForm';
 import ExperienceForm from './components/ExperienceForm';
 
-import IconButton from '@mui/material/IconButton';
-import { Add, BorderColor, Download } from '@mui/icons-material';
+import { Add, Download } from '@mui/icons-material';
+import html2pdf from 'html2pdf.js';
 
 function App() {
+  const previewRef = useRef(null);
   const [generalData, setGeneralData] = useState({
     name: '',
     email: '',
@@ -58,11 +59,27 @@ function App() {
     setExperienceData(newExperienceData);
   }
 
+  function downloadPdf() {
+    const element = previewRef.current;
+    const opt = {
+      margin: 0,
+      filename: 'resume.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
+    };
+
+    html2pdf().set(opt).from(element).save();
+  }
+
   return (
     <>
       <nav>
         <span>CV Formatter</span>
-        <button className='download-button'>
+        <button
+          className='download-button'
+          onClick={downloadPdf}
+          aria-label='Download Resume as PDF'
+        >
           Download <Download />
         </button>
       </nav>
@@ -104,6 +121,7 @@ function App() {
           </div>
         </form>
         <Preview
+          ref={previewRef}
           generalData={generalData}
           educationData={educationData}
           experienceData={experienceData}

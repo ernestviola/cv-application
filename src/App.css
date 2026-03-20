@@ -121,3 +121,18 @@ textarea {
   background-color: rgba(255, 172, 157, 0.265);
   border: 1px solid red;
 }
+
+.download-button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.2s;
+  border: 1px solid rgb(155, 155, 155);
+  border-radius: 5px;
+}
+
+.download-button:hover {
+  background-color: rgba(204, 204, 204, 0.636);
+  border: 1px solid transparent;
+}
